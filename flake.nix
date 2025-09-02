@@ -52,7 +52,7 @@
                 if mod.meta.cve_monitoring then "✅" else "❌"
               } | ${mod.meta.compliance.risk_level} |'';
 
-            tableRows = pkgs.lib.concatMapStrings tableRow modules;
+            tableRows = pkgs.lib.concatMapStringsSep "\n" tableRow modules;
           in
           tableHeader + "\n" + tableRows;
 
@@ -70,7 +70,7 @@
                 if mod.meta.compliance.approved then "✅" else "❌"
               } | ${mod.meta.compliance.approved_by} | ${mod.meta.compliance.last_audit} | ${mod.meta.compliance.next_audit} | ${mod.meta.maintainer} |'';
 
-            tableRows = pkgs.lib.concatMapStrings tableRow modules;
+            tableRows = pkgs.lib.concatMapStringsSep "\n" tableRow modules;
           in
           tableHeader + "\n" + tableRows;
 
