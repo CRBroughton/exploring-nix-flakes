@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "dev-tools": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "path": "..",
+        "type": "path"
+      },
+      "original": {
+        "path": "..",
+        "type": "path"
+      },
+      "parent": []
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -54,12 +69,12 @@
     },
     "root": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "dev-tools": "dev-tools",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "tillo-modules",
+          "dev-tools",
           "nixpkgs"
-        ],
-        "tillo-modules": "tillo-modules"
+        ]
       }
     },
     "systems": {
@@ -91,21 +106,6 @@
         "repo": "default",
         "type": "github"
       }
-    },
-    "tillo-modules": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "path": "..",
-        "type": "path"
-      },
-      "original": {
-        "path": "..",
-        "type": "path"
-      },
-      "parent": []
     }
   },
   "root": "root",

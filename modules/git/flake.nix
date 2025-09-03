@@ -91,16 +91,9 @@ pkgs.buildEnv {
       compliance_info = baseGit.meta.compliance;
     };
     
-    # Module-specific info
-    developer_features = [
-      "git-shortcuts" "branch-management" "commit-helpers" "ui-tools"
-    ];
-    
-    # Inherit base metadata for easy access
     inherit (baseGit.meta) software_inventory compliance tracking;
   };
   
-  # Expose functions for project consumption
   passthru = {
     functions = gitFunctions;
     help = gitHelp;
