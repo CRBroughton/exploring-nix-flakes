@@ -1,12 +1,12 @@
 { pkgs }:
 
 let
-  basePackage = import ./package.nix { inherit pkgs; };
+  baseLazyGit = import ./package.nix { inherit pkgs; };
  
 in
 pkgs.buildEnv {
   name = "lazygit-module";
-  paths = [ basePackage.packages ];
+  paths = [ baseLazyGit.packages ];
   
   pathsToLink = [ "/bin" "/share/man" "/share/bash-completion" "/share/zsh" ];
   
@@ -15,16 +15,16 @@ pkgs.buildEnv {
     
     audit_reference = {
       base_file = "./package.nix";
-      software_inventory = basePackage.meta;
-      compliance_info = basePackage.meta.compliance;
+      software_inventory = baseLazyGit.meta;
+      compliance_info = baseLazyGit.meta.compliance;
     };
     
-    inherit (basePackage.meta) name description compliance tracking;
+    inherit (baseLazyGit.meta) name description compliance tracking;
   };
   
   passthru = {
-    base = basePackage;
+    base = baseLazyGit;
     
-    inherit (basePackage.meta) compliance;
+    inherit (baseLazyGit.meta) compliance;
   };
 }
