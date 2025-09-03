@@ -12,6 +12,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         gitLib = dev-tools.modules.${system}.git;
+        lazygitLib = dev-tools.modules.${system}.lazygit;
         nodeLib = dev-tools.modules.${system}.node;
         pnpmLib = dev-tools.modules.${system}.pnpm;
       in
@@ -19,6 +20,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = [
             gitLib
+            lazygitLib
             nodeLib
             pnpmLib
           ];
