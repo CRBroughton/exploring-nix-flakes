@@ -6,14 +6,18 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "path": "..",
-        "type": "path"
+        "lastModified": 1756885077,
+        "narHash": "sha256-7qKYB8dG5cBgdfLH8dE5aLShw5hetUZNiQcoC/Q5hYk=",
+        "owner": "CRBroughton",
+        "repo": "exploring-nix-flakes",
+        "rev": "45a74b4cb3e802e2a011076c213428274d543e1a",
+        "type": "github"
       },
       "original": {
-        "path": "..",
-        "type": "path"
-      },
-      "parent": []
+        "owner": "CRBroughton",
+        "repo": "exploring-nix-flakes",
+        "type": "github"
+      }
     },
     "flake-utils": {
       "inputs": {
