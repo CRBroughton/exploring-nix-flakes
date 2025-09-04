@@ -11,11 +11,15 @@ let
       moduleNames = builtins.attrNames (builtins.readDir modulesPath);
 
       # Helper function to import a module
-      importModule = name: {
-        name = name;
-        module = import (modulesPath + "/${name}/flake.nix");
-        package = import (modulesPath + "/${name}/package.nix");
-      };
+      importModule =
+        name:
+        let
+          flakeModule = import (modulesPath + "/${name}/flake.nix");
+        in
+        {
+          name = name;
+          package = flakeModule;
+        };
 
       # Import all modules automatically
       allModuleData = map importModule moduleNames;
@@ -31,7 +35,7 @@ let
         builtins.listToAttrs (
           map (m: {
             name = m.name;
-            value = m.module { inherit pkgs; };
+            value = m.package { inherit pkgs; };
           }) allModuleData
         );
 
@@ -40,7 +44,7 @@ let
         builtins.listToAttrs (
           map (m: {
             name = "${m.name}-base";
-            value = (m.package { inherit pkgs; }).packages;
+            value = m.package { inherit pkgs; };
           }) allModuleData
         );
 

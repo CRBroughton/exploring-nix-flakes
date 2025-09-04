@@ -1,10 +1,7 @@
-# Enhanced module that adds developer functions to base packages
+# Unified Git development module
 { pkgs }:
 
 let
-  # Import the base packages
-  baseGit = import ./package.nix { inherit pkgs; };
-
   # Git utility functions that get injected into shellHook
   gitFunctions = ''
     # Git aliases as functions (faster than global config)
@@ -68,12 +65,9 @@ let
   '';
 
 in
-# Return the enhanced package with functions
 pkgs.buildEnv {
   name = "git-development-module";
-  paths = [ baseGit.packages ];
-
-  # Inherit the base package's pathsToLink
+  paths = [ pkgs.git ];
   pathsToLink = [
     "/bin"
     "/share/man"
@@ -84,27 +78,52 @@ pkgs.buildEnv {
     "/libexec"
   ];
 
-  # Module-specific metadata (developer-focused)
   meta = {
+    # Core package information
+    name = "git";
     description = "Git development module with utility functions";
     category = "development-module";
+    license = "GPL-2.0";
+    upstream = "https://git-scm.com/";
+    security_contact = "security@git-scm.com";
+    cve_monitoring = true;
+    maintainer = "devops-team";
+    maintainer_email = "devops@company.com";
 
-    # Reference to auditable base
-    audit_reference = {
-      base_file = "./package.nix";
-      software_inventory = baseGit.meta.software_inventory;
-      compliance_info = baseGit.meta.compliance;
+    # Development features
+    developer_features = [
+      "version-control"
+      "git-aliases"
+      "branch-management"
+      "commit-utilities"
+    ];
+
+    # Compliance information
+    compliance = {
+      approved = true;
+      approval_date = "2024-01-15";
+      approved_by = "security-team";
+      last_audit = "2024-01-15";
+      next_audit = "2024-07-15";
+      risk_level = "low";
     };
 
-    inherit (baseGit.meta) software_inventory compliance tracking;
+    # Usage tracking
+    tracking = {
+      business_justification = "Essential for version control in software development";
+      data_classification = "public";
+      network_access = "outbound-only";
+    };
+
+    # Audit reference - now unified
+    audit_reference = {
+      base_file = "unified-flake";
+      compliance_info = "inline";
+    };
   };
 
   passthru = {
     functions = gitFunctions;
     help = gitHelp;
-    base = baseGit;
-
-    # Make base package metadata easily accessible
-    inherit (baseGit.meta) software_inventory compliance;
   };
 }

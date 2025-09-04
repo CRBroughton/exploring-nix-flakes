@@ -6,28 +6,46 @@ Generated on: 2025-09-02 20:47:58 UTC
 
 | Name | Description | Category | License | CVE Monitoring | Risk Level |
 |------|-------------|----------|---------|----------------|------------|
-| git | Distributed version control system | version-control | GPL-2.0 | ✅ | low |
-| lazygit | Terminal UI for git commands | developer-tools | MIT | ❌ | low |
-| nodejs | JavaScript runtime built on Chrome's V8 JavaScript engine | javascript-runtime | MIT | ✅ | medium |
-| pnpm | Fast, disk space efficient package manager | package-manager | MIT | ✅ | medium |
+| composer | Composer development module with PHP dependency management | development-module | MIT | ✅ | medium |
+| git | Git development module with utility functions | development-module | GPL-2.0 | ✅ | low |
+| jq | jq development module for JSON processing | development-module | MIT | ✅ | low |
+| laravel | Laravel development module with project scaffolding | development-module | MIT | ❌ | low |
+| lazygit | Lazygit development module with terminal UI for git | development-module | MIT | ❌ | low |
+| nodejs | Node.js development module with JavaScript runtime | development-module | MIT | ✅ | medium |
+| nodejs18 | Node.js 18 development module (EOL - legacy support only) | development-module | MIT | ❌ | high |
+| php_84 | PHP 8.4 development module with scripting language | development-module | PHP-3.01 | ✅ | medium |
+| pnpm | pnpm development module with fast package management | development-module | MIT | ✅ | medium |
 
 ## Compliance Status
 
 | Name | Approved | Approved By | Last Audit | Next Audit | Maintainer |
 |------|----------|-------------|------------|------------|------------|
+| composer | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
 | git | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
+| jq | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
+| laravel | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
 | lazygit | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 | nodejs | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
+| nodejs18 | ❌ |  |  | 2024-03-15 | frontend-team |
+| php_84 | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
 | pnpm | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
 
 ## Summary
 
-- **Total Modules**: 4
-- **Approved Modules**: 4
-- **CVE Monitored**: 3
-- **High Risk**: 0
+- **Total Modules**: 9
+- **Approved Modules**: 8
+- **CVE Monitored**: 6
+- **High Risk**: 1
 
 ## Module Details
+
+### composer
+
+- **Business Justification**: PHP dependency management
+- **Data Classification**: public
+- **Network Access**: outbound-required
+- **Upstream**: https://getcomposer.org/
+- **Security Contact**: security@packagist.org
 
 ### git
 
@@ -36,6 +54,22 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Network Access**: outbound-only
 - **Upstream**: https://git-scm.com/
 - **Security Contact**: security@git-scm.com
+
+### jq
+
+- **Business Justification**: JSON processing in development and automation scripts
+- **Data Classification**: public
+- **Network Access**: none
+- **Upstream**: https://jqlang.github.io/jq/
+- **Security Contact**: https://github.com/jqlang/jq/security
+
+### laravel
+
+- **Business Justification**: Laravel project scaffolding and CLI tools
+- **Data Classification**: public
+- **Network Access**: outbound-required
+- **Upstream**: https://laravel.com/
+- **Security Contact**: taylor@laravel.com
 
 ### lazygit
 
@@ -52,6 +86,22 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Network Access**: outbound-required
 - **Upstream**: https://nodejs.org/
 - **Security Contact**: security@nodejs.org
+
+### nodejs18
+
+- **Business Justification**: Node.js v18 for legacy application support - MIGRATION REQUIRED
+- **Data Classification**: public
+- **Network Access**: outbound-required
+- **Upstream**: https://nodejs.org/
+- **Security Contact**: security@nodejs.org
+
+### php_84
+
+- **Business Justification**: PHP runtime for web application development
+- **Data Classification**: public
+- **Network Access**: outbound-optional
+- **Upstream**: https://www.php.net/
+- **Security Contact**: security@php.net
 
 ### pnpm
 

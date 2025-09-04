@@ -1,13 +1,9 @@
+# Unified jq development module
 { pkgs }:
 
-let
-  baseJq = import ./package.nix { inherit pkgs; };
-
-in
 pkgs.buildEnv {
   name = "jq-development-module";
-  paths = [ baseJq.packages ];
-
+  paths = [ pkgs.jq ];
   pathsToLink = [
     "/bin"
     "/share/man"
@@ -15,14 +11,18 @@ pkgs.buildEnv {
   ];
 
   meta = {
+    # Core package information
+    name = "jq";
+    description = "jq development module for JSON processing";
     category = "development-module";
+    license = "MIT";
+    upstream = "https://jqlang.github.io/jq/";
+    security_contact = "https://github.com/jqlang/jq/security";
+    cve_monitoring = true;
+    maintainer = "devops-team";
+    maintainer_email = "devops@company.com";
 
-    audit_reference = {
-      base_file = "./package.nix";
-      software_inventory = baseJq.meta;
-      compliance_info = baseJq.meta.compliance;
-    };
-
+    # Development features
     developer_features = [
       "json-formatting"
       "json-validation"
@@ -32,16 +32,27 @@ pkgs.buildEnv {
       "search-utilities"
     ];
 
-    inherit (baseJq.meta)
-      name
-      description
-      compliance
-      tracking
-      ;
-  };
+    # Compliance information
+    compliance = {
+      approved = true;
+      approval_date = "2024-01-15";
+      approved_by = "security-team";
+      last_audit = "2024-01-15";
+      next_audit = "2024-07-15";
+      risk_level = "low";
+    };
 
-  passthru = {
-    base = baseJq;
-    inherit (baseJq.meta) compliance;
+    # Usage tracking
+    tracking = {
+      business_justification = "JSON processing in development and automation scripts";
+      data_classification = "public";
+      network_access = "none";
+    };
+
+    # Audit reference - now unified
+    audit_reference = {
+      base_file = "unified-flake";
+      compliance_info = "inline";
+    };
   };
 }
