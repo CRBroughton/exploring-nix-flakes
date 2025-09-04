@@ -6,9 +6,14 @@
   packages = pkgs.buildEnv {
     name = "git-package";
     paths = [ pkgs.git ];
-    pathsToLink = [ 
-      "/bin" "/share/man" "/share/bash-completion" 
-      "/share/zsh" "/share/fish" "/share/git-core" "/libexec"
+    pathsToLink = [
+      "/bin"
+      "/share/man"
+      "/share/bash-completion"
+      "/share/zsh"
+      "/share/fish"
+      "/share/git-core"
+      "/libexec"
     ];
   };
 
@@ -23,7 +28,7 @@
     cve_monitoring = true;
     maintainer = "devops-team";
     maintainer_email = "devops@company.com";
-    
+
     # Compliance information
     compliance = {
       approved = true;
@@ -33,7 +38,7 @@
       next_audit = "2024-07-15";
       risk_level = "low";
     };
-    
+
     # Usage tracking
     tracking = {
       business_justification = "Essential for version control in software development";

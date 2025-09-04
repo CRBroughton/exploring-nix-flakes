@@ -4,9 +4,9 @@
   packages = pkgs.buildEnv {
     name = "pnpm-package";
     paths = [ pkgs.nodePackages.pnpm ];
-    pathsToLink = [ 
-      "/bin" 
-      "/share/man" 
+    pathsToLink = [
+      "/bin"
+      "/share/man"
       "/lib"
     ];
   };
@@ -21,7 +21,7 @@
     cve_monitoring = true;
     maintainer = "frontend-team";
     maintainer_email = "frontend@company.com";
-    
+
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -31,7 +31,7 @@
       risk_level = "medium";
       notes = "Network access required for package registry";
     };
-    
+
     tracking = {
       business_justification = "Efficient package management for JavaScript projects";
       data_classification = "public";

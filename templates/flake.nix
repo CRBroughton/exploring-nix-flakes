@@ -6,13 +6,13 @@
 let
   # CHANGE: Import your base package (update path if needed)
   basePackage = import ./package.nix { inherit pkgs; };
-  
+
   # CHANGE: Define utility functions that help developers use this tool
   # These are bash functions that get injected into the shell environment
   utilityFunctions = ''
     # CHANGE: Add your utility functions here
     # These should be common tasks developers do with your tool
-    
+
     # Example: Tool information
     CHANGEME-info() {
       echo "CHANGEME Tool Information:"
@@ -20,7 +20,7 @@ let
       echo "  Location: $(which CHANGEME-COMMAND)"
       # Add more useful info about the tool
     }
-    
+
     # Example: Project initialization (if applicable)
     init-CHANGEME() {
       if [ ! -f CHANGEME-CONFIG-FILE ]; then
@@ -31,28 +31,28 @@ let
         echo "CHANGEME project already initialized"
       fi
     }
-    
+
     # Example: Common shortcuts (adapt to your tool)
     CHANGEME-status() {
       CHANGEME-COMMAND status "$@"
     }
-    
+
     CHANGEME-list() {
       CHANGEME-COMMAND list "$@"  
     }
-    
+
     # Example: Cleanup function (if applicable)
     clean-CHANGEME() {
       echo "Cleaning CHANGEME artifacts..."
       rm -rf CHANGEME-CACHE-DIR CHANGEME-TEMP-FILES
       echo "Cleanup complete!"
     }
-    
+
     # CHANGE: Add more functions specific to your tool
     # Think about: What do developers do most often with this tool?
     # Common patterns: init, status, list, clean, update, configure
   '';
-  
+
   # CHANGE: Define help text that explains all your functions
   helpText = ''
     echo "CHANGEME utilities:"
@@ -75,48 +75,54 @@ in
 pkgs.buildEnv {
   name = "CHANGEME-development-module"; # CHANGE: your-tool-development-module
   paths = [ basePackage.packages ];
-  
+
   # Inherit the same pathsToLink from base package
-  pathsToLink = [ 
-    "/bin" "/share/man" # Add same paths as in package.nix
+  pathsToLink = [
+    "/bin"
+    "/share/man" # Add same paths as in package.nix
     # Copy the pathsToLink from your package.nix
   ];
-  
+
   # Enhanced module metadata
   meta = {
     category = "development-module";
-    
+
     # Reference to the auditable base package
     audit_reference = {
       base_file = "./package.nix";
       software_inventory = basePackage.meta;
       compliance_info = basePackage.meta.compliance;
     };
-    
+
     # CHANGE: List the developer features you're adding
     developer_features = [
-      "CHANGEME-shortcuts"    # What kinds of shortcuts do you provide?
-      "CHANGEME-helpers"      # What helper functions?
-      "CHANGEME-integration"  # What integrations?
-      # Examples: "git-shortcuts", "project-init", "status-helpers", 
+      "CHANGEME-shortcuts" # What kinds of shortcuts do you provide?
+      "CHANGEME-helpers" # What helper functions?
+      "CHANGEME-integration" # What integrations?
+      # Examples: "git-shortcuts", "project-init", "status-helpers",
       #          "cleanup-tools", "configuration-management"
     ];
-    
+
     # Inherit all the important metadata from base package
-    inherit (basePackage.meta) name description compliance tracking;
+    inherit (basePackage.meta)
+      name
+      description
+      compliance
+      tracking
+      ;
   };
-  
+
   # Expose functions and data for use in project flakes
   passthru = {
     # The actual function definitions to inject into shellHook
     functions = utilityFunctions;
-    
+
     # Help text to display
     help = helpText;
-    
+
     # Reference to base package
     base = basePackage;
-    
+
     # Make compliance info easily accessible
     inherit (basePackage.meta) compliance;
   };
@@ -126,7 +132,7 @@ pkgs.buildEnv {
 #
 # DO:
 #   - Provide shortcuts for common tasks
-#   - Add helpful status/info commands  
+#   - Add helpful status/info commands
 #   - Include project initialization if applicable
 #   - Add cleanup/maintenance functions
 #   - Use descriptive function names

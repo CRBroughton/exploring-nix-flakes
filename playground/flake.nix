@@ -1,14 +1,21 @@
 {
   description = "Full-stack JavaScript project";
-  
+
   inputs = {
     dev-tools.url = "github:CRBroughton/exploring-nix-flakes";
     nixpkgs.follows = "dev-tools/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
   };
-  
-  outputs = { self, dev-tools, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+
+  outputs =
+    {
+      self,
+      dev-tools,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
         gitLib = dev-tools.modules.${system}.git;
@@ -24,14 +31,14 @@
             nodeLib
             pnpmLib
           ];
-          
+
           shellHook = ''
             echo "🚀 JavaScript Development Environment loaded!"
             echo ""
-            
+
             # Inject all utility functions
             ${gitLib.functions}
-            
+
             # Project-specific functions
             setup() {
               echo "Setting up JavaScript project..."
@@ -39,7 +46,7 @@
               init-node
               echo "Project setup complete!"
             }
-            
+
             info() {
               echo "=== ENVIRONMENT INFO ==="
               node-info
@@ -49,7 +56,7 @@
                 pkg-info
               fi
             }
-            
+
             help() {
               echo "=== PROJECT COMMANDS ==="
               echo "  setup - Initialize project"
@@ -59,11 +66,12 @@
               echo "=== GIT ==="
               ${gitLib.help}
             }
-            
+
             echo "Available: Node.js $(node --version), pnpm $(pnpm --version)"
             echo "Quick start: setup, add react, pdev"
             echo "Type 'help' for all commands"
           '';
         };
-      });
+      }
+    );
 }

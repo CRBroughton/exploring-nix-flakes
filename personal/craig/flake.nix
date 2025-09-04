@@ -1,17 +1,22 @@
 {
   description = "My global development environment";
-  
+
   inputs = {
     # custom-modules.url = "github:CRBroughton/exploring-nix-flakes";
     custom-modules.url = "path:../../";
     nixpkgs.follows = "custom-modules/nixpkgs";
   };
-  
-  outputs = { self, custom-modules, nixpkgs }:
+
+  outputs =
+    {
+      self,
+      custom-modules,
+      nixpkgs,
+    }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      
+
       personalTools = pkgs.buildEnv {
         name = "personal-tools";
         paths = with pkgs; [
@@ -19,8 +24,9 @@
           curl
         ];
       };
-      
-    in {
+
+    in
+    {
       packages.${system}.default = pkgs.buildEnv {
         name = "my-global-dev-env";
         paths = [

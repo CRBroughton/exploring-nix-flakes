@@ -3,10 +3,10 @@
 {
   packages = pkgs.buildEnv {
     name = "node-package";
-    paths = [ pkgs.nodejs_22 ];  
-    pathsToLink = [ 
-      "/bin" 
-      "/share/man" 
+    paths = [ pkgs.nodejs_22 ];
+    pathsToLink = [
+      "/bin"
+      "/share/man"
       "/lib"
       "/include"
       "/share/doc"
@@ -23,7 +23,7 @@
     cve_monitoring = true;
     maintainer = "frontend-team";
     maintainer_email = "frontend@company.com";
-    
+
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -33,7 +33,7 @@
       risk_level = "medium";
       notes = "Network access required for package downloads";
     };
-    
+
     tracking = {
       business_justification = "JavaScript development and build processes";
       data_classification = "public";

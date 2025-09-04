@@ -5,7 +5,12 @@
   packages = pkgs.buildEnv {
     name = "lazygit-package";
     paths = [ pkgs.lazygit ];
-    pathsToLink = [ "/bin" "/share/man" "/share/bash-completion" "/share/zsh" ];
+    pathsToLink = [
+      "/bin"
+      "/share/man"
+      "/share/bash-completion"
+      "/share/zsh"
+    ];
   };
 
   meta = {
@@ -18,7 +23,7 @@
     cve_monitoring = false;
     maintainer = "devops-team";
     maintainer_email = "devops@company.com";
-    
+
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -27,7 +32,7 @@
       next_audit = "2024-07-15";
       risk_level = "low";
     };
-    
+
     tracking = {
       business_justification = "Improves developer productivity with git operations";
       data_classification = "public";

@@ -4,7 +4,10 @@
   packages = pkgs.buildEnv {
     name = "laravel-package";
     paths = [ pkgs.laravel ];
-    pathsToLink = [ "/bin" "/share" ];
+    pathsToLink = [
+      "/bin"
+      "/share"
+    ];
   };
 
   meta = {
@@ -17,7 +20,7 @@
     cve_monitoring = false;
     maintainer = "backend-team";
     maintainer_email = "backend@company.com";
-    
+
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -27,7 +30,7 @@
       risk_level = "low";
       notes = "CLI installer tool only";
     };
-    
+
     tracking = {
       business_justification = "Laravel project scaffolding and CLI tools";
       data_classification = "public";

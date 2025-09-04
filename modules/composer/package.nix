@@ -4,7 +4,10 @@
   packages = pkgs.buildEnv {
     name = "composer-package";
     paths = [ pkgs.php84Packages.composer ];
-    pathsToLink = [ "/bin" "/share/man" ];
+    pathsToLink = [
+      "/bin"
+      "/share/man"
+    ];
   };
 
   meta = {
@@ -17,7 +20,7 @@
     cve_monitoring = true;
     maintainer = "backend-team";
     maintainer_email = "backend@company.com";
-    
+
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -27,7 +30,7 @@
       risk_level = "medium";
       notes = "Network access required for package downloads";
     };
-    
+
     tracking = {
       business_justification = "PHP dependency management";
       data_classification = "public";
