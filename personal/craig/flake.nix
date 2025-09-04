@@ -14,7 +14,6 @@
       personalTools = pkgs.buildEnv {
         name = "personal-tools";
         paths = with pkgs; [
-          jq
           nixfmt-rfc-style
           curl
         ];
@@ -25,6 +24,7 @@
         name = "my-global-dev-env";
         paths = [
           custom-modules.modules.${system}.git
+          custom-modules.modules.${system}.jq
           custom-modules.modules.${system}.lazygit
           personalTools
         ];
