@@ -19,3 +19,7 @@ nix profile remove personal/craig && nix profile add ./personal/craig#default
 
 #### Update the remote flake
 nix flake update --flake github:CRBroughton/exploring-nix-flakes
+
+
+#### Get the latest version of the flake (need to do this after pushes/PR merges)
+nix flake update dev-tools
