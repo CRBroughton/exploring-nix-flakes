@@ -22,6 +22,7 @@
         paths = with pkgs; [
           nixfmt-rfc-style
           curl
+          nixd
         ];
       };
 
