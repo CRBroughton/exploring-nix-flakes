@@ -1,9 +1,8 @@
 {
-    "[nix]": {
-      "editor.defaultFormatter": "brettm12345.nixfmt-vscode",
-      "editor.formatOnSave": true,
-      "editor.formatOnPaste": true,
-      "editor.formatOnType": false
-    },
-    "nixfmt.executablePath": "nixfmt"
-  }
+  "[nix]": {
+    "editor.defaultFormatter": "brettm12345.nixfmt-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false
+  },
+}
