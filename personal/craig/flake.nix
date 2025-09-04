@@ -3,6 +3,7 @@
   
   inputs = {
     custom-modules.url = "github:CRBroughton/exploring-nix-flakes";
+    # custom-modules.url = "path:../../";
     nixpkgs.follows = "custom-modules/nixpkgs";
   };
   
