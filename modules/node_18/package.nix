@@ -4,7 +4,7 @@ let
   # Pin to nixpkgs revision that has Node.js 18
   node18Pkgs = import (builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/0bd7f95e4588643f2c2d403b38d8a2fe44b0fc73.tar.gz";
-    sha256 = ""; # Nix will tell you the correct hash on first run
+    sha256 = "0vx2pw69if88nkfh74bf1a8s5497n2nv7wydmvmqh5qh00fsahvq"; # Nix will tell you the correct hash on first run
      # Nix will tell you the correct hash on first run
   }) { system = pkgs.system; };
 in
