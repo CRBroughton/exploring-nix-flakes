@@ -3,7 +3,7 @@
 
 pkgs.buildEnv {
   name = "pnpm-development-module";
-  paths = [ pkgs.nodePackages.pnpm ];
+  paths = [ pkgs.pnpm ];
   pathsToLink = [
     "/bin"
     "/share/man"
