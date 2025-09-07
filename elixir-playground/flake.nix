@@ -2,28 +2,29 @@
   description = "Elixir demo";
 
   inputs = {
-    dev-tools.url = "path:../";
-    nixpkgs.follows = "dev-tools/nixpkgs";
+    custom-pkgs.url = "path:../";
+    nixpkgs.follows = "custom-pkgs/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
     {
       self,
-      dev-tools,
+      custom-pkgs,
       nixpkgs,
       flake-utils,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        cpkgs = custom-pkgs.modules.${system};
+        cpkgsShell = custom-pkgs.lib.${system}.mkShell;
       in
       {
-        devShells.default = pkgs.mkShell {
-          buildInputs = [
-            dev-tools.modules.${system}.git
-            dev-tools.modules.${system}.elixir
+        devShells.default = cpkgsShell {
+          buildInputs = with cpkgs; [
+            git
+            elixir
           ];
         };
       }

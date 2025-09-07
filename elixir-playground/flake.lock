@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "dev-tools": {
+    "custom-pkgs": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
@@ -69,10 +69,10 @@
     },
     "root": {
       "inputs": {
-        "dev-tools": "dev-tools",
+        "custom-pkgs": "custom-pkgs",
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "dev-tools",
+          "custom-pkgs",
           "nixpkgs"
         ]
       }

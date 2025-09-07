@@ -12,38 +12,7 @@
       nixpkgs,
       flake-utils,
     }:
-    {
-      # Ultra-simple dev shell creator - eliminates playground boilerplate
-      lib = {
-        # Function that takes dev-tools input and module list, returns complete flake outputs
-        mkDevShell =
-          modules: moduleNames:
-          flake-utils.lib.eachDefaultSystem (
-            system:
-            let
-              systemPkgs = nixpkgs.legacyPackages.${system};
-              selectedModules = map (name: modules.modules.${system}.${name}) moduleNames;
-            in
-            {
-              devShells.default = systemPkgs.mkShell {
-                buildInputs = selectedModules;
-                shellHook = systemPkgs.lib.concatMapStrings (
-                  module: systemPkgs.lib.optionalString (module ? functions) module.functions + "\n"
-                ) selectedModules;
-              };
-            }
-          );
-      };
-
-      # Templates for creating new modules
-      templates = {
-        default = {
-          path = ./templates;
-          description = "Unified module template";
-        };
-      };
-    }
-    // flake-utils.lib.eachDefaultSystem (
+    flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -73,8 +42,8 @@
         # Export compliance data
         compliance = discovered.toCompliance pkgs;
 
-        # Export system-specific discovery utilities
-        utils = {
+        # Export discovery utilities for advanced usage
+        lib = {
           inherit moduleDiscovery reports;
 
           # Convenience functions
@@ -82,6 +51,7 @@
           getModuleCount = discovered.getModuleCount;
           getDevTools = discovered.getModulesByCategory pkgs "developer-tools";
           getVersionControl = discovered.getModulesByCategory pkgs "version-control";
+          mkShell = pkgs.mkShell;
         };
       }
     );
