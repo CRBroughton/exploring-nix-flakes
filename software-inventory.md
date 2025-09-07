@@ -7,10 +7,13 @@ Generated on: 2025-09-02 20:47:58 UTC
 | Name | Description | Category | License | CVE Monitoring | Risk Level |
 |------|-------------|----------|---------|----------------|------------|
 | composer | Composer development module with PHP dependency management | development-module | MIT | ✅ | medium |
+| elixir | elixir development module with utility functions | development-module | CHANGEME-LICENSE | ❌ | CHANGEME-RISK |
 | git | Git development module with utility functions | development-module | GPL-2.0 | ✅ | low |
+| go | go development module with utility functions | development-module | CHANGEME-LICENSE | ✅ | CHANGEME-RISK |
 | jq | jq development module for JSON processing | development-module | MIT | ✅ | low |
 | laravel | Laravel development module with project scaffolding | development-module | MIT | ❌ | low |
 | lazygit | Lazygit development module with terminal UI for git | development-module | MIT | ❌ | low |
+| nixfmt | CHANGEME-DESC development module with utility functions | development-module | CHANGEME-LICENSE | ❌ | CHANGEME-RISK |
 | nodejs | Node.js development module with JavaScript runtime | development-module | MIT | ✅ | medium |
 | nodejs18 | Node.js 18 development module (EOL - legacy support only) | development-module | MIT | ❌ | high |
 | php_84 | PHP 8.4 development module with scripting language | development-module | PHP-3.01 | ✅ | medium |
@@ -21,10 +24,13 @@ Generated on: 2025-09-02 20:47:58 UTC
 | Name | Approved | Approved By | Last Audit | Next Audit | Maintainer |
 |------|----------|-------------|------------|------------|------------|
 | composer | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
+| elixir | ❌ | CHANGEME-WHO | YYYY-MM-DD | YYYY-MM-DD | CHANGEME-TEAM |
 | git | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
+| go | ✅ | CHANGEME-WHO | YYYY-MM-DD | YYYY-MM-DD | CHANGEME-TEAM |
 | jq | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 | laravel | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
 | lazygit | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
+| nixfmt | ❌ | CHANGEME-WHO | YYYY-MM-DD | YYYY-MM-DD | CHANGEME-TEAM |
 | nodejs | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
 | nodejs18 | ❌ |  |  | 2024-03-15 | frontend-team |
 | php_84 | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
@@ -32,9 +38,9 @@ Generated on: 2025-09-02 20:47:58 UTC
 
 ## Summary
 
-- **Total Modules**: 9
-- **Approved Modules**: 8
-- **CVE Monitored**: 6
+- **Total Modules**: 12
+- **Approved Modules**: 9
+- **CVE Monitored**: 7
 - **High Risk**: 1
 
 ## Module Details
@@ -47,6 +53,14 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Upstream**: https://getcomposer.org/
 - **Security Contact**: security@packagist.org
 
+### elixir
+
+- **Business Justification**: CHANGEME-JUSTIFICATION
+- **Data Classification**: CHANGEME-CLASSIFICATION
+- **Network Access**: CHANGEME-NETWORK
+- **Upstream**: CHANGEME-URL
+- **Security Contact**: CHANGEME-CONTACT
+
 ### git
 
 - **Business Justification**: Essential for version control in software development
@@ -54,6 +68,14 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Network Access**: outbound-only
 - **Upstream**: https://git-scm.com/
 - **Security Contact**: security@git-scm.com
+
+### go
+
+- **Business Justification**: CHANGEME-JUSTIFICATION
+- **Data Classification**: CHANGEME-CLASSIFICATION
+- **Network Access**: CHANGEME-NETWORK
+- **Upstream**: CHANGEME-URL
+- **Security Contact**: CHANGEME-CONTACT
 
 ### jq
 
@@ -78,6 +100,14 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Network Access**: none
 - **Upstream**: https://github.com/jesseduffield/lazygit
 - **Security Contact**: https://github.com/jesseduffield/lazygit/security
+
+### nixfmt
+
+- **Business Justification**: CHANGEME-JUSTIFICATION
+- **Data Classification**: CHANGEME-CLASSIFICATION
+- **Network Access**: CHANGEME-NETWORK
+- **Upstream**: CHANGEME-URL
+- **Security Contact**: CHANGEME-CONTACT
 
 ### nodejs
 
