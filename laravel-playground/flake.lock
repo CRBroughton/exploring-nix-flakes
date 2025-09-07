@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "dev-tools": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "path": "../",
-        "type": "path"
-      },
-      "original": {
-        "path": "../",
-        "type": "path"
-      },
-      "parent": []
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -51,6 +36,21 @@
         "type": "github"
       }
     },
+    "modules": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "path": "../",
+        "type": "path"
+      },
+      "original": {
+        "path": "../",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1756542300,
@@ -69,12 +69,8 @@
     },
     "root": {
       "inputs": {
-        "dev-tools": "dev-tools",
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "dev-tools",
-          "nixpkgs"
-        ]
+        "flake-utils": "flake-utils",
+        "modules": "modules"
       }
     },
     "systems": {

@@ -3,79 +3,14 @@
 # and development features in one file
 { pkgs }:
 
-let
-  # CHANGE: Define utility functions that help developers use this tool
-  # These are bash functions that get injected into the shell environment
-  utilityFunctions = ''
-    # CHANGE: Add your utility functions here
-    # These should be common tasks developers do with your tool
-
-    # Example: Tool information
-    CHANGEME-info() {
-      echo "CHANGEME Tool Information:"
-      echo "  Version: $(CHANGEME-COMMAND --version)"
-      echo "  Location: $(which CHANGEME-COMMAND)"
-      # Add more useful info about the tool
-    }
-
-    # Example: Project initialization (if applicable)
-    init-CHANGEME() {
-      if [ ! -f CHANGEME-CONFIG-FILE ]; then
-        echo "Initializing CHANGEME project..."
-        CHANGEME-COMMAND init
-        echo "Project initialized!"
-      else
-        echo "CHANGEME project already initialized"
-      fi
-    }
-
-    # Example: Common shortcuts (adapt to your tool)
-    CHANGEME-status() {
-      CHANGEME-COMMAND status "$@"
-    }
-
-    CHANGEME-list() {
-      CHANGEME-COMMAND list "$@"  
-    }
-
-    # Example: Cleanup function (if applicable)
-    clean-CHANGEME() {
-      echo "Cleaning CHANGEME artifacts..."
-      rm -rf CHANGEME-CACHE-DIR CHANGEME-TEMP-FILES
-      echo "Cleanup complete!"
-    }
-
-    # CHANGE: Add more functions specific to your tool
-    # Think about: What do developers do most often with this tool?
-    # Common patterns: init, status, list, clean, update, configure
-  '';
-
-  # CHANGE: Define help text that explains all your functions
-  helpText = ''
-    echo "CHANGEME utilities:"
-    echo "  CHANGEME-info       - Show tool information"
-    echo "  init-CHANGEME       - Initialize new project"
-    echo "  CHANGEME-status     - Check status"
-    echo "  CHANGEME-list       - List items"
-    echo "  clean-CHANGEME      - Clean up artifacts"
-    echo ""
-    echo "Common usage:"
-    echo "  CHANGEME-COMMAND --help    # Get tool help"
-    echo "  init-CHANGEME              # Set up project"
-    echo "  CHANGEME-status            # Check current state"
-    echo ""
-    echo "For more info: CHANGEME-info"
-  '';
-
-in
 # Unified package and development module
 pkgs.buildEnv {
-  name = "CHANGEME-development-module"; # CHANGE: your-tool-development-module
+  name = "nixfmt-development-module"; # CHANGE: your-tool-development-module
   paths = with pkgs; [
     # CHANGE: List the actual packages from nixpkgs
     # Example: git, nodejs_22, python3, etc.
     # Keep this minimal - one primary tool per module
-    CHANGEME-PACKAGE-NAME
+    nixfmt-rfc-style
   ];
   pathsToLink = [
     # CHANGE: Include paths needed for your tool to work properly
@@ -93,13 +28,13 @@ pkgs.buildEnv {
 
   meta = {
     # CHANGE: Basic identification
-    name = "CHANGEME-NAME"; # Package name (lowercase, no spaces)
+    name = "nixfmt"; # Package name (lowercase, no spaces)
     description = "CHANGEME-DESC development module with utility functions"; # One-line description
     category = "development-module";
     license = "CHANGEME-LICENSE"; # License: MIT, GPL-2.0, Apache-2.0, BSD-3-Clause, etc.
     upstream = "CHANGEME-URL"; # Official project website
     security_contact = "CHANGEME-CONTACT"; # Where to report security issues
-    cve_monitoring = CHANGEME-BOOL; # true/false - does this tool have CVE monitoring?
+    cve_monitoring = false; # true/false - does this tool have CVE monitoring?
     maintainer = "CHANGEME-TEAM"; # Which team maintains this module
     maintainer_email = "CHANGEME-EMAIL"; # Team email for questions
 
@@ -114,7 +49,7 @@ pkgs.buildEnv {
 
     # CHANGE: Compliance information (work with IT/Security team)
     compliance = {
-      approved = CHANGEME-BOOL; # true/false - has this been approved for use?
+      approved = false; # true/false - has this been approved for use?
       approval_date = "YYYY-MM-DD"; # When was this approved?
       approved_by = "CHANGEME-WHO"; # Which team/person approved this?
       last_audit = "YYYY-MM-DD"; # When was this last audited?
@@ -135,14 +70,6 @@ pkgs.buildEnv {
       base_file = "unified-flake";
       compliance_info = "inline";
     };
-  };
-
-  passthru = {
-    # The actual function definitions to inject into shellHook
-    functions = utilityFunctions;
-
-    # Help text to display
-    help = helpText;
   };
 }
 

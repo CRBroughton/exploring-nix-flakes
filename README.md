@@ -7,14 +7,14 @@ as well as auditing software for IT.
 install my personal settings:
 
 #### Install from remote (once you're happy)
-nix profile add github:CRBroughton/exploring-nix-flakes?dir=personal/craig
+nix profile add github:CRBroughton/exploring-nix-flakes?dir=profiles/craig
 
 #### Install local development version from your repo directory
 cd exploring-nix-flakes
-nix profile instaddall ./personal/craig#default
+nix profile add ./profiles/craig#default
 
 #### One liner for remove and install local
-nix profile remove personal/craig && nix profile add ./personal/craig#default
+nix profile remove profiles/craig && nix profile add ./profiles/craig#default
 
 
 #### Update the remote flake
