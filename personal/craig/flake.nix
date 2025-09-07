@@ -1,41 +1,43 @@
 {
   description = "My global development environment";
-
   inputs = {
     # custom-modules.url = "github:CRBroughton/exploring-nix-flakes";
     custom-modules.url = "path:../../";
     nixpkgs.follows = "custom-modules/nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
   };
-
   outputs =
     {
       self,
       custom-modules,
       nixpkgs,
+      flake-utils,
     }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+        cpkgs = custom-modules.modules.${system};
 
-      personalTools = pkgs.buildEnv {
-        name = "personal-tools";
-        paths = with pkgs; [
-          nixfmt-rfc-style
-          curl
-          nixd
-        ];
-      };
-
-    in
-    {
-      packages.${system}.default = pkgs.buildEnv {
-        name = "my-global-dev-env";
-        paths = [
-          custom-modules.modules.${system}.git
-          custom-modules.modules.${system}.jq
-          custom-modules.modules.${system}.lazygit
-          personalTools
-        ];
-      };
-    };
+        personalTools = pkgs.buildEnv {
+          name = "personal-tools";
+          paths = with pkgs; [
+            nixfmt-rfc-style
+            curl
+            nixd
+          ];
+        };
+      in
+      {
+        packages.default = pkgs.buildEnv {
+          name = "my-global-dev-env";
+          paths = [
+            cpkgs.git
+            cpkgs.jq
+            cpkgs.lazygit
+            personalTools
+          ];
+        };
+      }
+    );
 }
