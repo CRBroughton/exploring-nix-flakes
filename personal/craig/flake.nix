@@ -25,6 +25,7 @@
             nixfmt-rfc-style
             curl
             nixd
+            direnv
           ];
         };
       in

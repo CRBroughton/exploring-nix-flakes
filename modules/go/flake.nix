@@ -6,8 +6,9 @@ pkgs.buildEnv {
     go
   ];
   pathsToLink = [
-    "/bin"   # Go executables (go, gofmt)
+    "/bin" # Go executables (go, gofmt)
     "/share" # Go runtime, standard library, and GOROOT
+    "/lib" # Go standard library and runtime
   ];
 
   meta = {
