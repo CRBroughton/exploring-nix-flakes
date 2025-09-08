@@ -10,17 +10,7 @@ pkgs.buildEnv {
     ni
   ];
   pathsToLink = [
-    # CHANGE: Include paths needed for your tool to work properly
-    # Common paths (uncomment what you need):
-    "/bin" # Executables (almost always needed)
-    # "/share/man"            # Manual pages (recommended)
-    # "/share/bash-completion" # Bash tab completion
-    # "/share/zsh"            # Zsh completions
-    # "/share/fish"           # Fish completions
-    # "/lib"                  # Libraries (for runtimes like node, python)
-    # "/include"              # Headers (for compiling native modules)
-    # "/share/doc"            # Documentation
-    # "/etc"                  # Configuration files
+    "/bin"
   ];
 
   meta = {
