@@ -51,7 +51,21 @@
           getModuleCount = discovered.getModuleCount;
           getDevTools = discovered.getModulesByCategory pkgs "developer-tools";
           getVersionControl = discovered.getModulesByCategory pkgs "version-control";
-          mkShell = pkgs.mkShell;
+
+          # Customised mkShell to drop us into the Fish shell when running 'nix develop'
+          mkShell =
+            args:
+            pkgs.mkShell (
+              args
+              // {
+                shellHook = (args.shellHook or "") + ''
+                  # Check if fish is available and we're not already in fish
+                  if command -v fish >/dev/null 2>&1 && [ "$0" != "fish" ]; then
+                    exec fish
+                  fi
+                '';
+              }
+            );
         };
       }
     );
