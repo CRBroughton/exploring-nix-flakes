@@ -25,6 +25,7 @@
           buildInputs = with cpkgs; [
             node
             pnpm
+            ni
           ];
         };
       }
