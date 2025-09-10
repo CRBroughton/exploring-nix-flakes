@@ -1,27 +1,17 @@
 { pkgs }:
 
 pkgs.buildEnv {
-  name = "node-24-development-module"; # CHANGE: your-tool-development-module
+  name = "task";
   paths = with pkgs; [
-    nodejs_24
+    go-task
   ];
   pathsToLink = [
-    # CHANGE: Include paths needed for your tool to work properly
-    # Common paths (uncomment what you need):
-    "/bin" # Executables (almost always needed)
-    # "/share/man"            # Manual pages (recommended)
-    # "/share/bash-completion" # Bash tab completion
-    # "/share/zsh"            # Zsh completions
-    # "/share/fish"           # Fish completions
-    # "/lib"                  # Libraries (for runtimes like node, python)
-    # "/include"              # Headers (for compiling native modules)
-    # "/share/doc"            # Documentation
-    # "/etc"                  # Configuration files
+    "/bin"
   ];
 
   meta = {
     # CHANGE: Basic identification
-    name = "CHANGEME-NAME"; # Package name (lowercase, no spaces)
+    name = "task"; # Package name (lowercase, no spaces)
     description = "CHANGEME-DESC development module with utility functions"; # One-line description
     category = "development-module";
     license = "CHANGEME-LICENSE"; # License: MIT, GPL-2.0, Apache-2.0, BSD-3-Clause, etc.
