@@ -3,6 +3,7 @@
   inputs = {
     # custom-modules.url = "github:CRBroughton/exploring-nix-flakes";
     custom-modules.url = "path:../../";
+    # custom-modules.url = "git+ssh://git@github.com/CRBroughton/exploring-nix-flakes";
     nixpkgs.follows = "custom-modules/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -36,6 +37,7 @@
             cpkgs.git
             cpkgs.jq
             cpkgs.lazygit
+            cpkgs.task
             personalTools
           ];
         };
