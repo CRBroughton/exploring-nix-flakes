@@ -27,6 +27,7 @@
             curl
             nixd
             direnv
+            devenv
           ];
         };
       in
@@ -37,7 +38,9 @@
             cpkgs.git
             cpkgs.jq
             cpkgs.lazygit
+            cpkgs.lazydocker
             cpkgs.task
+            cpkgs.ansible
             personalTools
           ];
         };
