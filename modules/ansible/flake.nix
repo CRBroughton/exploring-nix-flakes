@@ -14,12 +14,6 @@
     maintainer = "devops-team";
     maintainer_email = "devops@company.com";
 
-    developer_features = [
-      "configuration-management"
-      "deployment-automation"
-      "infrastructure-as-code"
-    ];
-
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -36,10 +30,6 @@
       network_access = "bidirectional";
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
 }
 

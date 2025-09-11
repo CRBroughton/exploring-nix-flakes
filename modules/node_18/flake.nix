@@ -22,14 +22,6 @@ in
     maintainer = "frontend-team";
     maintainer_email = "frontend@company.com";
 
-    developer_features = [
-      "javascript-runtime-legacy"
-      "npm-package-manager-legacy"
-      "native-modules"
-      "debugging-tools"
-      "migration-support"
-    ];
-
     compliance = {
       approved = false;
       approval_date = "";
@@ -46,9 +38,5 @@ in
       network_access = "outbound-required";
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
 }

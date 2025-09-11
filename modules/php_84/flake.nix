@@ -14,15 +14,6 @@
     maintainer = "backend-team";
     maintainer_email = "backend@company.com";
 
-    developer_features = [
-      "dev-server"
-      "syntax-checking"
-      "repl"
-      "config-inspection"
-      "debugging"
-      "profiling"
-    ];
-
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -38,9 +29,5 @@
       network_access = "outbound-optional";
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
 }

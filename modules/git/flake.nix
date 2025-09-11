@@ -96,13 +96,6 @@ EOF
     maintainer = "devops-team";
     maintainer_email = "devops@company.com";
 
-    developer_features = [
-      "version-control"
-      "git-aliases"
-      "branch-management"
-      "commit-utilities"
-    ];
-
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -118,10 +111,6 @@ EOF
       network_access = "outbound-only";
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
   
   # Preserve utility functions for shell integration

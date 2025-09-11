@@ -18,13 +18,6 @@
     maintainer = "CHANGEME-TEAM";              # Which team maintains this module
     maintainer_email = "CHANGEME-EMAIL";      # Team email for questions
 
-    # CHANGE: List the developer features this tool provides
-    developer_features = [
-      "CHANGEME-FEATURE-1"  # What does this tool do?
-      "CHANGEME-FEATURE-2"  # What capabilities does it provide?
-      # Examples: "json-processing", "code-formatting", "package-management"
-    ];
-
     # CHANGE: Compliance information (work with IT/Security team)
     compliance = {
       approved = CHANGEME-BOOL;              # true/false - has this been approved for use?
@@ -43,10 +36,6 @@
       network_access = "CHANGEME-NETWORK";                # none/outbound-only/outbound-required/bidirectional
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
 }
 

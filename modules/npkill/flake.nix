@@ -14,12 +14,6 @@
     maintainer = "frontend-team";
     maintainer_email = "frontend@company.com";
 
-    developer_features = [
-      "disk-cleanup"
-      "node-modules-removal"
-      "interactive-selection"
-    ];
-
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -36,10 +30,6 @@
       network_access = "none";
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
 }
 

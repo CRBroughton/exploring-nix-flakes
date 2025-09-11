@@ -14,14 +14,6 @@
     maintainer = "platform-team";
     maintainer_email = "platform@company.com";
 
-    developer_features = [
-      "go-compiler"
-      "go-modules"
-      "go-runtime"
-      "code-formatting"
-      "build-tools"
-    ];
-
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -38,10 +30,6 @@
       network_access = "outbound-required";
     };
 
-    audit_reference = {
-      base_file = "unified-flake";
-      compliance_info = "inline";
-    };
   };
 }
 
