@@ -1,52 +1,41 @@
 { pkgs }:
 
-pkgs.buildEnv {
-  name = "ansible";
-  paths = with pkgs; [
-    ansible
-  ];
-  pathsToLink = [
-    "/bin"
-  ];
-
+{
+  package = pkgs.ansible;
+  
   meta = {
     name = "ansible";
-    category = "development-module";
-    license = "CHANGEME-LICENSE";
-    upstream = "CHANGEME-URL";
-    security_contact = "CHANGEME-CONTACT"; # Where to report security issues
-    cve_monitoring = true; # true/false - does this tool have CVE monitoring?
-    maintainer = "CHANGEME-TEAM"; # Which team maintains this module
-    maintainer_email = "CHANGEME-EMAIL"; # Team email for questions
+    description = "IT automation platform for configuration management and deployment";
+    category = "automation-tools";
+    license = "GPL-3.0";
+    upstream = "https://www.ansible.com";
+    security_contact = "security@ansible.com";
+    cve_monitoring = true;
+    maintainer = "devops-team";
+    maintainer_email = "devops@company.com";
 
-    # CHANGE: List the developer features you're adding
     developer_features = [
-      "CHANGEME-shortcuts" # What kinds of shortcuts do you provide?
-      "CHANGEME-helpers" # What helper functions?
-      "CHANGEME-integration" # What integrations?
-      # Examples: "git-shortcuts", "project-init", "status-helpers",
-      #          "cleanup-tools", "configuration-management"
+      "configuration-management"
+      "deployment-automation"
+      "infrastructure-as-code"
     ];
 
-    # CHANGE: Compliance information (work with IT/Security team)
     compliance = {
-      approved = true; # true/false - has this been approved for use?
-      approval_date = "YYYY-MM-DD"; # When was this approved?
-      approved_by = "CHANGEME-WHO"; # Which team/person approved this?
-      last_audit = "YYYY-MM-DD"; # When was this last audited?
-      next_audit = "YYYY-MM-DD"; # When should this be audited again?
-      risk_level = "CHANGEME-RISK"; # low/medium/high risk assessment
-      notes = "CHANGEME-NOTES"; # Optional: any special compliance notes
+      approved = true;
+      approval_date = "2024-01-15";
+      approved_by = "security-team";
+      last_audit = "2024-01-15";
+      next_audit = "2024-07-15";
+      risk_level = "medium";
+      notes = "Network access required for remote system management";
     };
 
-    # CHANGE: Usage tracking and business justification
     tracking = {
-      business_justification = "CHANGEME-JUSTIFICATION"; # Why do we need this tool?
-      data_classification = "CHANGEME-CLASSIFICATION"; # public/internal/confidential
-      network_access = "CHANGEME-NETWORK"; # none/outbound-only/outbound-required/bidirectional
+      business_justification = "Infrastructure automation and configuration management";
+      data_classification = "internal";
+      network_access = "bidirectional";
     };
 
-    # Audit reference - unified flake
     audit_reference = {
       base_file = "unified-flake";
       compliance_info = "inline";

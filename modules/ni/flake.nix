@@ -1,58 +1,41 @@
-# Unified Module Template
-# This template creates a single unified flake that combines package definition
-# and development features in one file
 { pkgs }:
 
-# Unified package and development module
-pkgs.buildEnv {
-  name = "ni-development-module"; # CHANGE: your-tool-development-module
-  paths = with pkgs; [
-    ni
-  ];
-  pathsToLink = [
-    "/bin"
-  ];
-
+{
+  package = pkgs.ni;
+  
   meta = {
-    # CHANGE: Basic identification
-    name = "ni"; # Package name (lowercase, no spaces)
-    description = "CHANGEME-DESC development module with utility functions"; # One-line description
-    category = "development-module";
-    license = "CHANGEME-LICENSE"; # License: MIT, GPL-2.0, Apache-2.0, BSD-3-Clause, etc.
-    upstream = "CHANGEME-URL"; # Official project website
-    security_contact = "CHANGEME-CONTACT"; # Where to report security issues
-    cve_monitoring = true; # true/false - does this tool have CVE monitoring?
-    maintainer = "CHANGEME-TEAM"; # Which team maintains this module
-    maintainer_email = "CHANGEME-EMAIL"; # Team email for questions
+    name = "ni";
+    description = "Universal package manager command interface";
+    category = "package-manager";
+    license = "MIT";
+    upstream = "https://github.com/antfu/ni";
+    security_contact = "https://github.com/antfu/ni/security";
+    cve_monitoring = false;
+    maintainer = "frontend-team";
+    maintainer_email = "frontend@company.com";
 
-    # CHANGE: List the developer features you're adding
     developer_features = [
-      "CHANGEME-shortcuts" # What kinds of shortcuts do you provide?
-      "CHANGEME-helpers" # What helper functions?
-      "CHANGEME-integration" # What integrations?
-      # Examples: "git-shortcuts", "project-init", "status-helpers",
-      #          "cleanup-tools", "configuration-management"
+      "package-manager-abstraction"
+      "universal-commands"
+      "project-detection"
     ];
 
-    # CHANGE: Compliance information (work with IT/Security team)
     compliance = {
-      approved = true; # true/false - has this been approved for use?
-      approval_date = "YYYY-MM-DD"; # When was this approved?
-      approved_by = "CHANGEME-WHO"; # Which team/person approved this?
-      last_audit = "YYYY-MM-DD"; # When was this last audited?
-      next_audit = "YYYY-MM-DD"; # When should this be audited again?
-      risk_level = "CHANGEME-RISK"; # low/medium/high risk assessment
-      notes = "CHANGEME-NOTES"; # Optional: any special compliance notes
+      approved = true;
+      approval_date = "2024-01-15";
+      approved_by = "security-team";
+      last_audit = "2024-01-15";
+      next_audit = "2024-07-15";
+      risk_level = "low";
+      notes = "Simple wrapper for package managers";
     };
 
-    # CHANGE: Usage tracking and business justification
     tracking = {
-      business_justification = "CHANGEME-JUSTIFICATION"; # Why do we need this tool?
-      data_classification = "CHANGEME-CLASSIFICATION"; # public/internal/confidential
-      network_access = "CHANGEME-NETWORK"; # none/outbound-only/outbound-required/bidirectional
+      business_justification = "Unified interface for different package managers (npm, yarn, pnpm)";
+      data_classification = "public";
+      network_access = "none";
     };
 
-    # Audit reference - unified flake
     audit_reference = {
       base_file = "unified-flake";
       compliance_info = "inline";

@@ -1,25 +1,25 @@
 { pkgs }:
 
-pkgs.buildEnv {
-  name = "lazygit-development-module";
-  paths = with pkgs; [ lazydocker ];
-  pathsToLink = [
-    "/bin"
-    "/share/man"
-    "/share/bash-completion"
-    "/share/zsh"
-  ];
-
+{
+  package = pkgs.lazydocker;
+  
   meta = {
     name = "lazydocker";
-    description = "lazydocker development module";
-    category = "development-module";
+    description = "Simple terminal UI for Docker and Docker Compose";
+    category = "container-tools";
     license = "MIT";
-    upstream = "https://github.com/jesseduffield/lazygit";
-    security_contact = "https://github.com/jesseduffield/lazygit/security";
+    upstream = "https://github.com/jesseduffield/lazydocker";
+    security_contact = "https://github.com/jesseduffield/lazydocker/security";
     cve_monitoring = false;
     maintainer = "devops-team";
     maintainer_email = "devops@company.com";
+
+    developer_features = [
+      "docker-ui"
+      "container-management"
+      "log-viewing"
+      "docker-compose-support"
+    ];
 
     compliance = {
       approved = true;
@@ -31,12 +31,11 @@ pkgs.buildEnv {
     };
 
     tracking = {
-      business_justification = "Improves developer productivity with git operations";
+      business_justification = "Improves developer productivity with Docker container management";
       data_classification = "public";
       network_access = "none";
     };
 
-    # Audit reference - now unified
     audit_reference = {
       base_file = "unified-flake";
       compliance_info = "inline";

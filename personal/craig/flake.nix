@@ -41,6 +41,7 @@
             cpkgs.lazydocker
             cpkgs.task
             cpkgs.ansible
+            cpkgs.npkill
             personalTools
           ];
         };

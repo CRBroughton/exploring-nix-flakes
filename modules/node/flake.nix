@@ -1,22 +1,12 @@
-# Unified Node.js development module
 { pkgs }:
 
-pkgs.buildEnv {
-  name = "node-development-module";
-  paths = [ pkgs.nodejs_22 ];
-  pathsToLink = [
-    "/bin"
-    "/share/man"
-    "/lib"
-    "/include"
-    "/share/doc"
-  ];
-
+{
+  package = pkgs.nodejs_22;
+  
   meta = {
-    # Core package information
     name = "nodejs";
-    description = "Node.js development module with JavaScript runtime";
-    category = "development-module";
+    description = "Node.js JavaScript runtime environment";
+    category = "javascript-runtime";
     license = "MIT";
     upstream = "https://nodejs.org/";
     security_contact = "security@nodejs.org";
@@ -24,7 +14,6 @@ pkgs.buildEnv {
     maintainer = "frontend-team";
     maintainer_email = "frontend@company.com";
 
-    # Development features
     developer_features = [
       "javascript-runtime"
       "npm-package-manager"
@@ -34,7 +23,6 @@ pkgs.buildEnv {
       "async-programming"
     ];
 
-    # Compliance information
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -45,14 +33,12 @@ pkgs.buildEnv {
       notes = "Network access required for package downloads";
     };
 
-    # Usage tracking
     tracking = {
       business_justification = "JavaScript development and build processes";
       data_classification = "public";
       network_access = "outbound-required";
     };
 
-    # Audit reference - now unified
     audit_reference = {
       base_file = "unified-flake";
       compliance_info = "inline";

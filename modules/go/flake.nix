@@ -1,21 +1,12 @@
 { pkgs }:
 
-pkgs.buildEnv {
-  name = "go-development-module";
-  paths = with pkgs; [
-    go
-  ];
-  pathsToLink = [
-    "/bin" # Go executables (go, gofmt)
-    "/share" # Go runtime, standard library, and GOROOT
-    "/lib" # Go standard library and runtime
-  ];
-
+{
+  package = pkgs.go;
+  
   meta = {
-    # Basic identification
     name = "go";
-    description = "Go development module with compiler and runtime";
-    category = "development-module";
+    description = "Go programming language compiler and runtime";
+    category = "programming-language";
     license = "BSD-3-Clause";
     upstream = "https://golang.org/";
     security_contact = "security@golang.org";
@@ -23,7 +14,6 @@ pkgs.buildEnv {
     maintainer = "platform-team";
     maintainer_email = "platform@company.com";
 
-    # Developer features
     developer_features = [
       "go-compiler"
       "go-modules"
@@ -32,7 +22,6 @@ pkgs.buildEnv {
       "build-tools"
     ];
 
-    # Compliance information
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -43,14 +32,12 @@ pkgs.buildEnv {
       notes = "Standard Go compiler and runtime, well-established tool";
     };
 
-    # Usage tracking and business justification
     tracking = {
       business_justification = "Go programming language support for backend services and tooling";
       data_classification = "public";
       network_access = "outbound-required";
     };
 
-    # Audit reference - unified flake
     audit_reference = {
       base_file = "unified-flake";
       compliance_info = "inline";

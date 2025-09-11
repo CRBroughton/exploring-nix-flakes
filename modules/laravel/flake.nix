@@ -1,19 +1,12 @@
-# Unified Laravel development module
 { pkgs }:
 
-pkgs.buildEnv {
-  name = "laravel-development-module";
-  paths = [ pkgs.laravel ];
-  pathsToLink = [
-    "/bin"
-    "/share"
-  ];
-
+{
+  package = pkgs.laravel;
+  
   meta = {
-    # Core package information
     name = "laravel";
-    description = "Laravel development module with project scaffolding";
-    category = "development-module";
+    description = "Laravel application installer and project scaffolding tool";
+    category = "web-framework";
     license = "MIT";
     upstream = "https://laravel.com/";
     security_contact = "taylor@laravel.com";
@@ -21,14 +14,12 @@ pkgs.buildEnv {
     maintainer = "backend-team";
     maintainer_email = "backend@company.com";
 
-    # Development features
     developer_features = [
       "project-scaffolding"
       "artisan-shortcuts"
       "code-generation"
     ];
 
-    # Compliance information
     compliance = {
       approved = true;
       approval_date = "2024-01-15";
@@ -39,14 +30,12 @@ pkgs.buildEnv {
       notes = "CLI installer tool only";
     };
 
-    # Usage tracking
     tracking = {
       business_justification = "Laravel project scaffolding and CLI tools";
       data_classification = "public";
       network_access = "outbound-required";
     };
 
-    # Audit reference - now unified
     audit_reference = {
       base_file = "unified-flake";
       compliance_info = "inline";

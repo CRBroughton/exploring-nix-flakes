@@ -1,49 +1,69 @@
 # Software Inventory Report
 
-Generated on: 2025-09-02 20:47:58 UTC
+Generated on: 2025-09-10 19:01:58 UTC
 
 ## Software Inventory
 
 | Name | Description | Category | License | CVE Monitoring | Risk Level |
 |------|-------------|----------|---------|----------------|------------|
-| composer | Composer development module with PHP dependency management | development-module | MIT | ✅ | medium |
-| elixir | elixir development module with utility functions | development-module | CHANGEME-LICENSE | ❌ | CHANGEME-RISK |
-| git | Git development module with utility functions | development-module | GPL-2.0 | ✅ | low |
-| go | go development module with utility functions | development-module | CHANGEME-LICENSE | ✅ | CHANGEME-RISK |
-| jq | jq development module for JSON processing | development-module | MIT | ✅ | low |
-| laravel | Laravel development module with project scaffolding | development-module | MIT | ❌ | low |
-| lazygit | Lazygit development module with terminal UI for git | development-module | MIT | ❌ | low |
-| nixfmt | CHANGEME-DESC development module with utility functions | development-module | CHANGEME-LICENSE | ❌ | CHANGEME-RISK |
-| nodejs | Node.js development module with JavaScript runtime | development-module | MIT | ✅ | medium |
-| nodejs18 | Node.js 18 development module (EOL - legacy support only) | development-module | MIT | ❌ | high |
-| php_84 | PHP 8.4 development module with scripting language | development-module | PHP-3.01 | ✅ | medium |
-| pnpm | pnpm development module with fast package management | development-module | MIT | ✅ | medium |
+| ansible | IT automation platform for configuration management and deployment | automation-tools | GPL-3.0 | ✅ | medium |
+| composer | PHP dependency manager | package-manager | MIT | ✅ | medium |
+| elixir | Dynamic, functional language for building scalable applications | programming-language | Apache-2.0 | ❌ | low |
+| git | Git version control system with utility functions | version-control | GPL-2.0 | ✅ | low |
+| go | Go programming language compiler and runtime | programming-language | BSD-3-Clause | ✅ | low |
+| jq | Command-line JSON processor | development-tools | MIT | ✅ | low |
+| laravel | Laravel application installer and project scaffolding tool | web-framework | MIT | ❌ | low |
+| lazydocker | Simple terminal UI for Docker and Docker Compose | container-tools | MIT | ❌ | low |
+| lazygit | Simple terminal UI for git commands | version-control | MIT | ❌ | low |
+| ni | Universal package manager command interface | package-manager | MIT | ❌ | low |
+| nixfmt | Official Nix code formatter following RFC style | development-tools | MPL-2.0 | ❌ | low |
+| nodejs | Node.js JavaScript runtime environment | javascript-runtime | MIT | ✅ | medium |
+| nodejs18 | Node.js 18 legacy support (EOL - migration required) | javascript-runtime | MIT | ❌ | high |
+| nodejs-24 | Node.js v24 JavaScript runtime environment | javascript-runtime | MIT | ✅ | medium |
+| npkill | Find and remove node_modules directories to free up disk space | development-tools | MIT | ❌ | low |
+| php_84 | PHP 8.4 scripting language runtime | programming-language | PHP-3.01 | ✅ | medium |
+| pnpm | Fast, disk space efficient package manager | package-manager | MIT | ✅ | medium |
+| task | Task runner and build tool alternative to Make | build-tools | MIT | ❌ | low |
 
 ## Compliance Status
 
 | Name | Approved | Approved By | Last Audit | Next Audit | Maintainer |
 |------|----------|-------------|------------|------------|------------|
+| ansible | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 | composer | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
-| elixir | ❌ | CHANGEME-WHO | YYYY-MM-DD | YYYY-MM-DD | CHANGEME-TEAM |
+| elixir | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
 | git | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
-| go | ✅ | CHANGEME-WHO | YYYY-MM-DD | YYYY-MM-DD | CHANGEME-TEAM |
+| go | ✅ | platform-team | 2024-01-15 | 2024-07-15 | platform-team |
 | jq | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 | laravel | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
+| lazydocker | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 | lazygit | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
-| nixfmt | ❌ | CHANGEME-WHO | YYYY-MM-DD | YYYY-MM-DD | CHANGEME-TEAM |
+| ni | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
+| nixfmt | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 | nodejs | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
 | nodejs18 | ❌ |  |  | 2024-03-15 | frontend-team |
+| nodejs-24 | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
+| npkill | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
 | php_84 | ✅ | security-team | 2024-01-15 | 2024-07-15 | backend-team |
 | pnpm | ✅ | security-team | 2024-01-15 | 2024-07-15 | frontend-team |
+| task | ✅ | security-team | 2024-01-15 | 2024-07-15 | devops-team |
 
 ## Summary
 
-- **Total Modules**: 12
-- **Approved Modules**: 9
-- **CVE Monitored**: 7
+- **Total Modules**: 18
+- **Approved Modules**: 17
+- **CVE Monitored**: 9
 - **High Risk**: 1
 
 ## Module Details
+
+### ansible
+
+- **Business Justification**: Infrastructure automation and configuration management
+- **Data Classification**: internal
+- **Network Access**: bidirectional
+- **Upstream**: https://www.ansible.com
+- **Security Contact**: security@ansible.com
 
 ### composer
 
@@ -55,11 +75,11 @@ Generated on: 2025-09-02 20:47:58 UTC
 
 ### elixir
 
-- **Business Justification**: CHANGEME-JUSTIFICATION
-- **Data Classification**: CHANGEME-CLASSIFICATION
-- **Network Access**: CHANGEME-NETWORK
-- **Upstream**: CHANGEME-URL
-- **Security Contact**: CHANGEME-CONTACT
+- **Business Justification**: Backend development for distributed and fault-tolerant applications
+- **Data Classification**: public
+- **Network Access**: outbound-optional
+- **Upstream**: https://elixir-lang.org
+- **Security Contact**: https://github.com/elixir-lang/elixir/security
 
 ### git
 
@@ -71,11 +91,11 @@ Generated on: 2025-09-02 20:47:58 UTC
 
 ### go
 
-- **Business Justification**: CHANGEME-JUSTIFICATION
-- **Data Classification**: CHANGEME-CLASSIFICATION
-- **Network Access**: CHANGEME-NETWORK
-- **Upstream**: CHANGEME-URL
-- **Security Contact**: CHANGEME-CONTACT
+- **Business Justification**: Go programming language support for backend services and tooling
+- **Data Classification**: public
+- **Network Access**: outbound-required
+- **Upstream**: https://golang.org/
+- **Security Contact**: security@golang.org
 
 ### jq
 
@@ -93,6 +113,14 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Upstream**: https://laravel.com/
 - **Security Contact**: taylor@laravel.com
 
+### lazydocker
+
+- **Business Justification**: Improves developer productivity with Docker container management
+- **Data Classification**: public
+- **Network Access**: none
+- **Upstream**: https://github.com/jesseduffield/lazydocker
+- **Security Contact**: https://github.com/jesseduffield/lazydocker/security
+
 ### lazygit
 
 - **Business Justification**: Improves developer productivity with git operations
@@ -101,13 +129,21 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Upstream**: https://github.com/jesseduffield/lazygit
 - **Security Contact**: https://github.com/jesseduffield/lazygit/security
 
+### ni
+
+- **Business Justification**: Unified interface for different package managers (npm, yarn, pnpm)
+- **Data Classification**: public
+- **Network Access**: none
+- **Upstream**: https://github.com/antfu/ni
+- **Security Contact**: https://github.com/antfu/ni/security
+
 ### nixfmt
 
-- **Business Justification**: CHANGEME-JUSTIFICATION
-- **Data Classification**: CHANGEME-CLASSIFICATION
-- **Network Access**: CHANGEME-NETWORK
-- **Upstream**: CHANGEME-URL
-- **Security Contact**: CHANGEME-CONTACT
+- **Business Justification**: Standardized code formatting for Nix files
+- **Data Classification**: public
+- **Network Access**: none
+- **Upstream**: https://github.com/NixOS/nixfmt
+- **Security Contact**: https://github.com/NixOS/nixfmt/security
 
 ### nodejs
 
@@ -125,6 +161,22 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Upstream**: https://nodejs.org/
 - **Security Contact**: security@nodejs.org
 
+### nodejs-24
+
+- **Business Justification**: JavaScript runtime for frontend development and build processes
+- **Data Classification**: public
+- **Network Access**: outbound-required
+- **Upstream**: https://nodejs.org
+- **Security Contact**: security@nodejs.org
+
+### npkill
+
+- **Business Justification**: Clean up node_modules directories to save disk space in development environments
+- **Data Classification**: public
+- **Network Access**: none
+- **Upstream**: https://github.com/voidcosmos/npkill
+- **Security Contact**: https://github.com/voidcosmos/npkill/security
+
 ### php_84
 
 - **Business Justification**: PHP runtime for web application development
@@ -140,4 +192,12 @@ Generated on: 2025-09-02 20:47:58 UTC
 - **Network Access**: outbound-required
 - **Upstream**: https://pnpm.io/
 - **Security Contact**: https://github.com/pnpm/pnpm/security
+
+### task
+
+- **Business Justification**: Standardized task automation and build processes across projects
+- **Data Classification**: public
+- **Network Access**: none
+- **Upstream**: https://taskfile.dev
+- **Security Contact**: https://github.com/go-task/task/security
 
