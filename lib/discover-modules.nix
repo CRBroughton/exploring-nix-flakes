@@ -29,13 +29,23 @@ let
       # Raw module data for further processing
       moduleData = allModuleData;
 
-      # Convert to attribute sets for flake outputs
+      # Convert to attribute sets for flake outputs - returns packages directly
       toModules =
         pkgs:
         builtins.listToAttrs (
           map (m: {
             name = m.name;
-            value = m.package { inherit pkgs; };
+            value = (m.package { inherit pkgs; }).package;
+          }) allModuleData
+        );
+
+      # Access to module metadata  
+      toModuleMeta =
+        pkgs:
+        builtins.listToAttrs (
+          map (m: {
+            name = m.name;
+            value = (m.package { inherit pkgs; }).meta;
           }) allModuleData
         );
 

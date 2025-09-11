@@ -29,8 +29,11 @@
 
       in
       {
-        # Export discovered modules
+        # Export discovered modules (packages directly accessible)
         modules = discovered.toModules pkgs;
+        
+        # Export module metadata
+        moduleMeta = discovered.toModuleMeta pkgs;
 
         # Export base packages
         packages = (discovered.toPackages pkgs) // {
